@@ -97,39 +97,6 @@ conda list | grep tensorflow
 
 -----------------------------------END----------------------------------------------------------------
 
--------------------------------MaskRCNN python 函式庫安裝(Geforce 2060)-----------------------------
-環境：ubuntu 18.04、python 3.6(Create by Anaconda)
-
-1安裝 matplotlib
- 指令：conda install matplotlib
-
-2.安裝 tensorflow-gpu          
-  
- conda install tensorflow-gpu=1.13.1 
-
-3.安裝 keras (已安裝項目之綠色背景勾按右鍵)
-降版安裝  keras-gpu 2.1.5
-
-4.安裝 numpy 、 scikit-image 與pillow 
-conda 選單一般安裝即可
-
-5.降版 scipy 
-  conda 選單降版選scipy  1.1.0  (已安裝項目之綠色背景勾按右鍵)
-
-5.安裝COCO
-指令：conda install -c conda-forge pycocotools
-
-6.安裝特定版本opencv
-
-指令：conda install -c menpo opencv3
-
-7. 安裝 gtk 解決error
-sudo apt-get install libcanberra-gtk-module 
-
-8.開vs code , run RealTimeSeg py檔
-
-*若webcam沒畫面，安裝 sudo apt install cheese 測試鏡頭
-
 
 
 -------------------------------MaskRCNN python 函式庫安裝(RTX TITAN)-----------------------------
@@ -161,7 +128,9 @@ conda 選單一般安裝即可
 7. 安裝 gtk 解決error
 sudo apt-get install libcanberra-gtk-module 
 
-8.開vs code , run RealTimeSeg py檔
+8.開vs code , run RealTimeSeg py檔 (專案到此網頁下載，解壓到家目錄\Project下)
+https://www.dropbox.com/s/nlpgazuah3vrsgy/Mask_RCNN-master_1080830_RTX2060.zip?dl=0
+註：此版本已有針對RTX 系列GPU 於CUDNN產生錯誤修改程式碼
 
 *若webcam沒畫面，安裝 sudo apt install cheese 測試鏡頭
 
