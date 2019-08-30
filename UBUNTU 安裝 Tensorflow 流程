@@ -1,0 +1,194 @@
+
+=================================================
+安裝Ubuntu 作業系統
+=================================================
+1、win 10 下載 refus  https://rufus.ie/
+2、下載 ubuntu 18.04
+3、製作USB安裝碟
+4、BIOS選USB安裝碟開機安裝
+5、安裝過程不可以選第三方驅動程式安裝(會造成無法登入)，斷網路
+
+流程參考：https://medium.com/caesars-study-review-on-web-development/win10-and-ubuntu-%E9%9B%99%E7%B3%BB%E7%B5%B1%E5%AE%89%E8%A3%9D%E7%AD%86%E8%A8%98-bc824bef7fb4
+
+=================================================
+安裝驅動程式與開發工具
+=================================================
+
+安裝 TITAN RTX DRIVER FOR UBUNTU 18.04
+
+流程參考：https://medium.com/yang-hong-xin/%E5%9C%A8-ubuntu-18-04-%E7%82%BA-gtx-1060-6g-%E5%AE%89%E8%A3%9D%E9%A9%85%E5%8B%95%E7%A8%8B%E5%BC%8F-e070bfdc139e
+
+tip: 先記住這個快捷鍵很常用，ctrl + alt + T  開啟指令輸入視窗
+
+0.MSI筆電要先進bios關掉secure boot 才能順利安裝nvida 驅動程式。nvida 驅動程式後，MSI筆電才能外接螢幕，不然ubuntu會當掉。
+1.sudo apt update
+2.sudo apt upgrade
+3.完成上面，就能列出支援的顯示卡驅動，輸入：
+ubuntu-drivers devices
+4.輸入上面那行，可看到 nvidia driver的 版本，如果是430，輸入：
+sudo apt install nvidia-driver-430
+5.輸入下面二行，會重開機
+sudo apt install nvidia-settings
+sudo reboot
+6.確認顯卡驅動安裝成功，輸入：
+nvidia-smi 
+或圖形介面，輸入：
+nvidia-settings
+7.安裝 CUDA 10 ，先告知系統去哪抓，輸入下面這幾行
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo apt-get update
+wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+sudo apt-get update
+這樣就可以安裝CUDA ，輸入：
+sudo apt install --no-install-recommends cuda-10-0
+(此指令會執行很久…可以先去下載第8和第9的安裝檔，但先不安裝)
+
+
+
+8.安裝cuDNN
+  到https://developer.nvidia.com/rdp/cudnn-download  下載 版本：7.6.3 CUDA10
+  選 cuDNN Runtime Library for Ubuntu18.04 (Deb)
+  然後到下載資料夾打指令sudo dpkg -i <your_cudnn.deb檔名>
+
+9.安裝 anaconda
+  anaconda網站下載linux版 python 3.7，然後輸入指令：
+  bash XXXXX.sh       (XXXXX.sh 為下載的檔案)
+  安裝過程都選yes,裝完後關閉指令視窗重開一個新的，輸入
+  conda -V  及
+  anaconda -V 
+  確認安裝完成
+  下指令開啟GUI： anaconda-navigator  (或參考第10點的方法)
+
+10. 建立anaconda 桌面捷徑
+參考網頁：https://askubuntu.com/questions/1017284/cant-create-anaconda-shortcut-to-launch-from-desktop-on-ubuntu-17-10
+
+打指令:cd /usr/share/applications/
+       sudo vi Anaconda.desktop
+進入編輯器後，貼下面這區塊文字，記得貼前將裡面的superman改成你的帳號名稱。貼完後按 :w 存檔
+-------------------------------------------------------------
+[Desktop Entry]
+ Version=1.0
+ Type=Application
+ Name=Anaconda-Navigator
+ GenericName=Anaconda
+ Comment=Scientific Python Development Environment - Python3
+ Exec=bash -c 'export PATH="/home/superman/anaconda3/bin:$PATH" && /home/superman/anaconda3/bin/anaconda-navigator'
+ Categories=Development;Science;IDE;Qt;Education;
+ Icon=/home/superman/anaconda3/lib/python3.7/site-packages/anaconda_navigator/static/images/anaconda-icon-256x256.png
+ Terminal=false
+ StartupNotify=true
+ MimeType=text/x-python;
+-------------------------------------------------------------
+開檔案總管，將/usr/share/applications/下建好的Anaconda.desktop拉到桌面
+打開anaconda會發現若視窗和字太大且無法調整大小，此時操作下面三行可解決
+Menu-> File-> Preferences
+Uncheck Hi-DPI scaling
+Restart the app
+
+11. 安裝Tensorflow
+
+Anaconda->Enviroments-> 建一新的環境(重要!選python3.6, python3.7目前tensorflow不支援)
+->選NotInstalled，對keras-gpu、tensorflow-gpu-base、tensorflow-gpu 等項目勾選後點apply安裝
+該環境開啟terminal, 輸入下面這行檢查安裝好的版本
+conda list | grep tensorflow  
+
+-----------------------------------END----------------------------------------------------------------
+
+-------------------------------MaskRCNN python 函式庫安裝(Geforce 2060)-----------------------------
+環境：ubuntu 18.04、python 3.6(Create by Anaconda)
+
+1安裝 matplotlib
+ 指令：conda install matplotlib
+
+2.安裝 tensorflow-gpu          
+  
+ conda install tensorflow-gpu=1.13.1 
+
+3.安裝 keras (已安裝項目之綠色背景勾按右鍵)
+降版安裝  keras-gpu 2.1.5
+
+4.安裝 numpy 、 scikit-image 與pillow 
+conda 選單一般安裝即可
+
+5.降版 scipy 
+  conda 選單降版選scipy  1.1.0  (已安裝項目之綠色背景勾按右鍵)
+
+5.安裝COCO
+指令：conda install -c conda-forge pycocotools
+
+6.安裝特定版本opencv
+
+指令：conda install -c menpo opencv3
+
+7. 安裝 gtk 解決error
+sudo apt-get install libcanberra-gtk-module 
+
+8.開vs code , run RealTimeSeg py檔
+
+*若webcam沒畫面，安裝 sudo apt install cheese 測試鏡頭
+
+
+
+-------------------------------MaskRCNN python 函式庫安裝(RTX TITAN)-----------------------------
+環境：ubuntu 18.04、python 3.6(Create by Anaconda)
+
+1安裝 matplotlib
+ 指令：conda install matplotlib
+
+2.安裝 tensorflow-gpu          
+  
+ conda install tensorflow-gpu=1.13.1 
+
+3.安裝 keras (已安裝項目之綠色背景勾按右鍵)
+降版安裝  keras-gpu 2.1.5
+
+4.安裝 numpy 、 scikit-image 與pillow 
+conda 選單一般安裝即可
+
+5.降版 scipy 
+  conda 選單降版選scipy  1.1.0  (已安裝項目之綠色背景勾按右鍵)
+
+5.安裝COCO
+指令：conda install -c conda-forge pycocotools
+
+6.安裝特定版本opencv
+
+指令：conda install -c menpo opencv3
+
+7. 安裝 gtk 解決error
+sudo apt-get install libcanberra-gtk-module 
+
+8.開vs code , run RealTimeSeg py檔
+
+*若webcam沒畫面，安裝 sudo apt install cheese 測試鏡頭
+
+
+
+=================================================
+以下非必要
+=================================================
+1、安裝桌面軟體
+sudo add-apt-repository universe
+sudo apt install gnome-tweak-tool
+參考這網頁把圖示拉到桌面 https://kknews.cc/code/n6a2q2g.html
+
+2、ubuntu 18.04 安裝 fcitx 嘸蝦米
+安裝fcitx與嘸蝦米table:
+sudo apt-get install fcitx fcitx-m17n
+sudo apt-get install fcitx-table-boshiamy
+系統設定
+先到「系統設定值」，選「語言支援」，在「鍵盤輸入法系統」底下選擇 「fcitx」。
+重開機或是重新登入，就可以在系統工具列上看到fcitx的ICON了。
+
+3、cuDNN 版本灌錯移除
+
+sudo rm -rf /usr/local/cuda/include/cudnn.h
+sudo rm -rf /usr/local/cuda/lib64/libcudnn*
+
+
+
+------------------------------------------------
+(好像沒效)安裝過程不想老是輸入密碼可參考此頁：http://suweiwilson.pixnet.net/blog/post/393550657-ubuntu-sudo%E5%85%8D%E5%AF%86%E7%A2%BC
