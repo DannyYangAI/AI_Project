@@ -1,0 +1,32 @@
+環境：Windows 10、MSI 筆電 、Nvidia RTX 2060
+
+
+1、安裝CUDA：至Nvdia 網站下載安裝 CUDA10 版(目前會下載10.1)
+安全連結：https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64
+參考網頁：https://blog.csdn.net/qq_37296487/article/details/83028394
+
+2、控制台-系統-進階系統設定-環境變數- 選變數Path，加一行：
+ C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
+
+測試安裝是否成功：開啟 命令提示字元 ，輸入 nvcc -V會出來cuda 版本
+
+3.下載cuDNN： https://developer.nvidia.com/rdp/cudnn-download
+   選cuDNN v7.6.3 (August 23, 2019), for CUDA 10.1、 再選cuDNN Library for Windows 10
+   解壓縮後有三個資料夾，三個資料夾移動到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1，
+   以覆蓋掉原有的資料夾
+
+4、安裝 Anaconda ： https://www.anaconda.com/distribution/
+   選 python3.7 version 下載後安裝
+
+
+5、安裝與測試tensorflow-gpu
+anaconda 建一個新的環境，選 python3.6, 選Not installed , 再Key入tensorflow-gpu , 點apply 
+
+測試：一樣在Terminal 輸入 python , 再輸入下面二行，會出現一堆訊息，訊息最後面要有獨顯的型號，就成功了
+import tensorflow as tf
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+然後跑出一堆訊息中會包含顯卡型號如下字串
+device:GPU:0 -> device: 0, name: GeForce RTX 2060
+
+
+
