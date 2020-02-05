@@ -1,1 +1,12 @@
 
+安裝參考網站：https://vitux.com/how-to-backup-files-with-duplicity-on-ubuntu/
+教學網站：https://www.itread01.com/p/177489.html
+
+安裝步驟：
+sudo apt-get install duplicity
+sudo apt-get install --reinstall python-gi
+
+桌面按左下角的顯示應用程式，搜尋「備份」
+開啟工具即可執行…
+備份時選擇備份存放的資料夾
+
