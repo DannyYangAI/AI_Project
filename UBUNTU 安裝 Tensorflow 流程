@@ -161,3 +161,20 @@ sudo rm -rf /usr/local/cuda/lib64/libcudnn*
 
 ------------------------------------------------
 (好像沒效)安裝過程不想老是輸入密碼可參考此頁：http://suweiwilson.pixnet.net/blog/post/393550657-ubuntu-sudo%E5%85%8D%E5%AF%86%E7%A2%BC
+
+
+---------------------VS code 編輯時會卡住的解決方法-------------------------------------------
+會出現time out, 此時修改json檔
+Open the launch.json file and add the following configuration:
+
+{
+     "name": "Python: Debug Console",
+     "type": "python",
+     "request": "launch",
+     "program": "${file}",
+     "console": "internalConsole"     《=============改這行
+}
+
+
+
+
