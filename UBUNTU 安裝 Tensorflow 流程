@@ -61,6 +61,10 @@ sudo apt install --no-install-recommends cuda-10-0
 9.安裝 anaconda
   anaconda網站下載linux版 python 3.7，然後輸入指令：
   bash XXXXX.sh       (XXXXX.sh 為下載的檔案)
+  *若無法執行.sh, 依下面三行執行
+       cd /path/to/file
+       chmod +x filename.sh
+       ./filename.sh
   安裝過程都選yes,裝完後關閉指令視窗重開一個新的，輸入
   conda -V  及
   anaconda -V 
