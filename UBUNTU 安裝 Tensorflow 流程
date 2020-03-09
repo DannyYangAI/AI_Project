@@ -184,6 +184,8 @@ Open the launch.json file and add the following configuration:
      "console": "internalConsole"     《=============改這行
 }
 
+---------------------VS code 執行時發生python 版本3.7導致錯誤的解決方法-------------------------------------------
+在vscode 視窗左下角有Python 的版本，點擊他然後改3.6
 
 
 
