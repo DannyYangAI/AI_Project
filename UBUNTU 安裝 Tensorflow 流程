@@ -27,6 +27,11 @@ tip: 先記住這個快捷鍵很常用，ctrl + alt + T  開啟指令輸入視�
 ubuntu-drivers devices
 4.輸入上面那行，可看到 nvidia driver的 版本，如果是430，輸入：
 sudo apt install nvidia-driver-430
+*如果沒出現版本，依序輸入下面四行即可解決
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt install ubuntu-drivers-common
+sudo apt install nvidia-driver-XXX
 5.輸入下面二行，會重開機
 sudo apt install nvidia-settings
 sudo reboot
