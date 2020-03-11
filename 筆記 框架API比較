@@ -1,0 +1,34 @@
+下面是對三個模塊的簡述：
+
+（1）tf.nn ：提供神經網絡相關操作的支持，包括卷積操作（conv）、池化操作（pooling）、歸一化、loss、分類操作、embedding、RNN、Evaluation。
+
+（2）tf.layers：主要提供的高層的神經網絡，主要和卷積相關的，個人感覺是對tf.nn的進一步封裝，tf.nn會更底層一些。
+
+（3）tf.contrib：tf.contrib.layers提供夠將計算圖中的網絡層、正則化、摘要操作、是構建計算圖的高級操作，但是tf.contrib包含不穩定和實驗代碼，有可能以後API會改變。
+
+以上三個模塊的封裝程度是逐個遞進的。 
+
+
+
+TF高層封裝
+
+目前流行的主要有四種：
+TensorFlow-Slim、
+TFLrean、()
+Keras、
+Estimator。
+TensorFlow-Slim是谷歌公司給出的較早的高級封裝，現在仍然被較多使用；
+TFLrean相比TensorFlow-Slim更加簡潔。
+最終要的是Keras和Estimator
+
+
+Keras 優點：Theano時代就推出了，使用者較多，有個人維護的中文文檔，雖然更新很慢。純scikit-learn式編程，隱藏了數據流的細節，數據流沒有敘述的很清楚，到目前為止，並沒有理解keras的時間數據輸入方式...
+缺點：運行TensorFlow時很慢，拓展性差（國外測評說是因為 Keras 最開始只是為了 Theano 而開發的，TensorFlow發布後才寫支持TensorFlow的代碼，所以為了兼容犧牲了效率）。不適合科研單位和企業，換句話說畢業以後要重新學另外一個框架..... 複雜的情況會出現error，這時候調試只能靠運氣了。 。
+
+TensorLayer 優點：對學術界的優勢是靈活性很強，甚至可以很簡單地實現動態網絡結構（Neural Modular Network）.... 對工業界的優勢是運行速度快。教程很強大，還包含了 Google TensorFlow 官網的模塊化實現。同時提供scikit-learn式的API，和專業級的API，適合新手到老手過渡。缺點：剛剛推出（16年8月份）使用者少，但我發現中文使用者不少，有很多微信群、qq群可以交流，有可能和TL官方推出中文文檔有關。
+
+Tflearn 優點：不像Keras那樣兼容兩種後端，所以效率比 Keras 快，但根據國外測評還是比 TensorLayer慢一些。缺點：維護不好，作者居然在github issues那裡說 “有時間再實現 seq2seq”，我暈... 有對話為證Seq2Seq Machine Translation · Issue #120 · tflearn/tflearn · GitHub
+國外對 TensorLayer 和 Keras 比較的結論基本是企業界和學術界使用 TensorLayer+TensorFlow 搭配，學生使用Keras（若未來想從事機器學習的工作，我個人建議還是好好看下TensorFlow吧）。
+
+個人觀點：學習 TensorFlow 是一個大趨勢，題主提到的庫都是基於 TensorFlow 開發的，選擇一個庫非常關鍵。若想熟練掌握深度學習，不妨先學習下 TensorFlow 本身，參考：TensorFlow如何入門？
+- 科技補充==================找到一個測評，Keras的速度很慢很慢。在跑MNIST時（784-800-800-10，batch size=500），每個epoch耗時如下：TensorLayer ≈ 750msTflearn ≈ 950msKeras ≈ 1500ms
