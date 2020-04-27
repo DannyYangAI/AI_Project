@@ -1,0 +1,42 @@
+Pytorch環境設置
+
+參考：win10下使用anaconda安裝pytorch和torchvision https://www.itread01.com/content/1544976568.html
+
+
+1.建立anaconda 環境，裝pytorch
+2.conda install torchvision -c pytorch
+
+以上步驟import torch有問題
+
+
+以下可
+conda install  torchvision==0.4.1 -c pytorch
+注意torchvision版本問題
+
+沒試：(cpu版本)
+conda install -c pytorch torchvision-cpu
+or
+conda install pytorch torchvision cpuonly -c pytorch
+
+檢查pytorch 版本：
+python -c "import torch; print(torch.__version__)"
+
+
+
+問題：ImportError: cannot import name 'PILLOW_VERSION'
+解決：
+
+Currently using torchvision==0.4.2 and this solved my problem.
+Downgrade your pillow to 6.1 and restart your Jupyter notebook.
+Use this
+conda install pillow=6.1
+
+
+
+
+
+
+
+
+
+
