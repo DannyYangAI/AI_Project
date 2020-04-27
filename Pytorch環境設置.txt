@@ -26,6 +26,7 @@ python -c "import torch; print(torch.__version__)"
 問題：ImportError: cannot import name 'PILLOW_VERSION'
 解決：
 
+
 Currently using torchvision==0.4.2 and this solved my problem.
 Downgrade your pillow to 6.1 and restart your Jupyter notebook.
 Use this
