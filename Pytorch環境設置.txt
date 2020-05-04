@@ -23,9 +23,12 @@ python -c "import torch; print(torch.__version__)"
 
 
 
+
+
+
+
 問題：ImportError: cannot import name 'PILLOW_VERSION'
 解決：
-
 
 Currently using torchvision==0.4.2 and this solved my problem.
 Downgrade your pillow to 6.1 and restart your Jupyter notebook.
@@ -34,10 +37,66 @@ conda install pillow=6.1
 
 
 
+問題 無法安裝 pycocotools 
+解決方法
+先安裝 Cython
+再安裝 conda install git
+pip3 install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
+
+
+python train.py --dataset VOC --dataset_root "D:\Project\EfficientDet.Pytorch-master\datasets\VOCdevkit" --network efficiencydet-d0 --batch_size 32 
+
+
+Custom Dataset
 
 
 
+問題：http 錯誤
+utils.py 下載路徑改成這個
 
 
+url_map = {
+    'efficientnet-b0': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b0-355c32eb.pth',
+    'efficientnet-b1': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b1-f1951068.pth',
+    'efficientnet-b2': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b2-8bb594d6.pth',
+    'efficientnet-b3': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b3-5fb5a3c3.pth',
+    'efficientnet-b4': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth',
+    'efficientnet-b5': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b5-b6417697.pth',
+    'efficientnet-b6': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b6-c76e70fd.pth',
+    'efficientnet-b7': 'https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b7-dcc49843.pth',
+}
 
 
+問題：找不到adamw
+載 github.com/pytorch/pytorch/tree/master/torch/optim/adamw.py 到
+C:\Users\A\Anaconda3\envs\pytorch\Lib\site-packages\torch\optim 
+C:\Users\A\Anaconda3\envs\pytorch\Lib\site-packages\torch\opti\__init__.py 加 from .adamw import AdamW
+
+問題： AttributeError: 'EfficientDet' object has no attribute 'module'
+train.c 第100行左右 model.module.is_training = True 改成    model.is_training = True
+
+
+問題：DefaultCPUAllocator: not enough memory: you tried to allocate %dGB. Buy new RAM!0
+縮小batch size
+
+
+問題：cuda()
+
+losses.py 拿掉所有 ".cuda()"
+
+
+effiecientdet 環境
+
+pytroch 1.3.1, torchvision 0.4.2
+	
+conda install pytorch==1.3.1 torchvision==0.4.2 cpuonly -c pytorch
+
+安裝套件：
+PILLOW (降至6.1)
+tqdm
+opencv
+albumentations (安裝指令：conda install -c conda-forge albumentations)
+Cython
+pycocotools(安裝指令：(step 1)conda install git    (step 2) pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"   )
+requests
+pandas
