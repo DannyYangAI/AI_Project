@@ -87,9 +87,12 @@ losses.py 拿掉所有 ".cuda()"
 
 effiecientdet 環境
 
-pytroch 1.3.1, torchvision 0.4.2
-	
+python 3.6 pytroch 1.3.1, torchvision 0.4.2
+
+cpu only 裝法
 conda install pytorch==1.3.1 torchvision==0.4.2 cpuonly -c pytorch
+GPU 裝法
+conda install pytorch==1.3.1 torchvision==0.4.2  -c pytorch
 
 安裝套件：
 PILLOW (降至6.1)
