@@ -100,6 +100,6 @@ tqdm
 opencv
 albumentations (安裝指令：conda install -c conda-forge albumentations)
 Cython
-pycocotools(安裝指令：(step 1)conda install git    (step 2) pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"   )
+pycocotools(安裝指令：(step 1)conda install git    (step 2) pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"   ，若出現錯誤請安裝vs 2015套件 ：參考https://hjwang520.pixnet.net/blog/post/404280185-%E5%AE%89%E8%A3%9Dmicrosoft-visual-c%2B%2B-14.0)
 requests
 pandas
