@@ -1,6 +1,14 @@
 
+1.cuda、cudnn 安裝
+2.anaconda 安裝 (可以執行Python 3.6 , anaconda歷史版本下載區 https://repo.anaconda.com/archive/)
+3.anaconda 建立一個新環境，於該環境安裝 tensorflow 1.13.1版
+4.放inference 資料夾包到電腦
+5.於inference資料夾內，修改checkpoint檔的路徑設定，內容參考如下
+=========================checkpoint ======================================================================
+model_checkpoint_path: "C:\\Debug\\Inference\\Model\\save_net.ckpt"
+all_model_checkpoint_paths: "C:\\Debug\\Inference\\Model\\save_net.ckpt"
 
-
+6.
 
 
 Ai.bat
@@ -18,12 +26,8 @@ rem echo %cd%  >log2.txt
 C:\Users\wb6955298\AppData\Local\Continuum\anaconda3\envs\Cell_CNN\python.exe  "Inference.py" >log.txt
 
 pause;
-
-
 ===========================================================================================================
 
 
-=========================checkpoint ======================================================================
-model_checkpoint_path: "C:\\Debug\\Inference\\Model\\save_net.ckpt"
-all_model_checkpoint_paths: "C:\\Debug\\Inference\\Model\\save_net.ckpt"
+
 
