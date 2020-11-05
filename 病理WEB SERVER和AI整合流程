@@ -1,0 +1,23 @@
+
+
+
+
+
+Ai.bat
+========================================================================================================
+
+rem echo %cd% >log1.txt
+
+C:
+cd C:\Debug\Inference
+
+call C:\Users\wb6955298\AppData\Local\Continuum\anaconda3\Scripts\activate Cell_CNN
+
+rem echo %cd%  >log2.txt
+
+C:\Users\wb6955298\AppData\Local\Continuum\anaconda3\envs\Cell_CNN\python.exe  "Inference.py" >log.txt
+
+pause;
+
+
+===========================================================================================================
