@@ -21,3 +21,9 @@ pause;
 
 
 ===========================================================================================================
+
+
+=========================checkpoint ======================================================================
+model_checkpoint_path: "C:\\Debug\\Inference\\Model\\save_net.ckpt"
+all_model_checkpoint_paths: "C:\\Debug\\Inference\\Model\\save_net.ckpt"
+
