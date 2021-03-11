@@ -12,7 +12,20 @@ https://zhuanlan.zhihu.com/p/109266820
 conda install  pyinstaller 
 pyinstaller -F ./mySFTP.py
 
-2.加密
+說明：實測後發現只要留.exe檔即可，其他資料夾和檔案可以全砍掉
+
+2.加密防反組譯
 anaconda 環境安裝 pycrypto
 pyinstaller -F --key 975310 ./mySFTP.py     (數字任意打，加密用的)
-*注意main檔可能還是可以反組譯，不要有程式碼，而是去呼叫另一個檔(另一個lib)
+*參考網頁說main檔可能還是可以反組譯，不要有程式碼，而是去呼叫另一個檔(另一個lib)
+
+3.EXE檔的圖示改成公司LOGO
+
+pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py 
+說明：如果沒有改成功，可以試著複製一份EXE檔，複製出來的會顯示改過的LOGO =>但不知道為什麼會這樣
+
+
+
+完整指令：pyinstaller -F --key 975310 --onefile -i"D:\Project\myFTP\mirdc.ico" ./mySFTP.py   
+
+
