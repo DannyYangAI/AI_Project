@@ -1,0 +1,18 @@
+python 原始碼包成執行檔
+
+參考網頁：安裝pyinstaller  - 【Python】使用 PyInstaller 將 Python打包成 exe 檔
+https://medium.com/pyladies-taiwan/python-%E5%B0%87python%E6%89%93%E5%8C%85%E6%88%90exe%E6%AA%94-32a4bacbe351
+
+參考網頁：加密防反組譯  -  谈谈 Pyinstaller 的编译和反编译，如何保护你的代码
+https://zhuanlan.zhihu.com/p/109266820
+
+---------------------------------------------------------------------------------------
+指令步驟：
+1.產生EXE
+conda install  pyinstaller 
+pyinstaller -F ./mySFTP.py
+
+2.加密
+anaconda 環境安裝 pycrypto
+pyinstaller -F --key 975310 ./mySFTP.py     (數字任意打，加密用的)
+*注意main檔可能還是可以反組譯，不要有程式碼，而是去呼叫另一個檔(另一個lib)
