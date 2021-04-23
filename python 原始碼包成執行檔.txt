@@ -28,4 +28,8 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 
 完整指令：pyinstaller -F --key 975310 --onefile -i"D:\Project\myFTP\mirdc.ico" ./mySFTP.py   
 
+----------------------以下為含tensorflow Project-----------------------------------------
+解決pyside問題
+pyinstaller -F --hidden-import PySide6.QtXml main_ui.py
+
 
