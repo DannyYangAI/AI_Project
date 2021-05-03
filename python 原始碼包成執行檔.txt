@@ -30,6 +30,12 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 
 ----------------------以下為含tensorflow Project-----------------------------------------
 解決pyside問題
+ 
+1 將C:\Users\A\Anaconda3\envs\TeethDetection\Lib\site-packages\PySide6\plugins\platforms\qwindows.dll 複製到EXE檔的位置
+並在main() 加 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = os.getcwd()
+
+2anaconda 解安裝 tensorflow 和 astor  然後再重新同時裝這二個，tesorflow 選1.13.1, astor 降版選0.8.0
+
+執行
 pyinstaller -F --hidden-import PySide6.QtXml main_ui.py
-將C:\Users\A\Anaconda3\envs\TeethDetection\Lib\site-packages\PySide6\plugins\platforms\qwindows.dll 複製到EXE檔的位置
 
