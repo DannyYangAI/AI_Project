@@ -39,3 +39,4 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 執行
 pyinstaller -F --hidden-import PySide6.QtXml main_ui.py
 
+*建立重新跑Pyinstaller 時把先前已產生的資料夾和檔案全刪再重跑
