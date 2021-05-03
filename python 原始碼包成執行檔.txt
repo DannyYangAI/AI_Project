@@ -31,5 +31,5 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 ----------------------以下為含tensorflow Project-----------------------------------------
 解決pyside問題
 pyinstaller -F --hidden-import PySide6.QtXml main_ui.py
-
+將C:\Users\A\Anaconda3\envs\TeethDetection\Lib\site-packages\PySide6\plugins\platforms\qwindows.dll 複製到EXE檔的位置
 
