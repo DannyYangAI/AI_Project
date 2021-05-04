@@ -37,7 +37,8 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 2anaconda 解安裝 tensorflow 和 astor  然後再重新同時裝這二個，tesorflow 選1.13.1, astor 降版選0.8.0
 
 執行
-pyinstaller -F --hidden-import PySide6.QtXml --icon=Medicalwp-Medical-Tooth-blue.ico main_ui.py
+pyinstaller -F --hidden-import PySide6.QtXml --icon=Medicalwp-Medical-Tooth-blue.ico --windowed main_ui.py
 
 *window icon檔要加入指令，若只設定在qt mainwindow, pyinstall 打包後不會出現
 *建立重新跑Pyinstaller 時把先前已產生的資料夾和檔案全刪再重跑
+*--windowed 執行時隱藏consol 視窗
