@@ -28,17 +28,21 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 
 完整指令：pyinstaller -F --key 975310 --onefile -i"D:\Project\myFTP\mirdc.ico" ./mySFTP.py   
 
-----------------------以下為含tensorflow Project-----------------------------------------
+
+----------------------以下為含tensorflow 與 pyside Project 使用pyinstaller遇到的坑與解法-----------------------------------------
 解決pyside問題
  
 1 將C:\Users\A\Anaconda3\envs\TeethDetection\Lib\site-packages\PySide6\plugins\platforms\qwindows.dll 複製到EXE檔的位置
 並在main() 加 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = os.getcwd()
 
+解決tensorflow問題
 2anaconda 解安裝 tensorflow 和 astor  然後再重新同時裝這二個，tesorflow 選1.13.1, astor 降版選0.8.0
 
-執行
+執行指令
 pyinstaller -F --hidden-import PySide6.QtXml --icon=Medicalwp-Medical-Tooth-blue.ico --windowed main_ui.py
 
+*--hidden-import PySide6.QtXml 指令可解決執行時找不到檔案特定qt檔的問題
 *window icon檔要加入指令，若只設定在qt mainwindow, pyinstall 打包後不會出現
 *建立重新跑Pyinstaller 時把先前已產生的資料夾和檔案全刪再重跑
-*--windowed 執行時隱藏consol 視窗
+*使用 --windowed 打包會於執行時隱藏consol 視窗
+*pyinstaller 打包後常出現qt畫面中非png或bmp的圖檔無法顯示，一律就改成png可解決
