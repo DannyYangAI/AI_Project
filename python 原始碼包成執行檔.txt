@@ -46,3 +46,7 @@ pyinstaller -F --hidden-import PySide6.QtXml --icon=Medicalwp-Medical-Tooth-blue
 *建立重新跑Pyinstaller 時把先前已產生的資料夾和檔案全刪再重跑
 *使用 --windowed 打包會於執行時隱藏consol 視窗
 *pyinstaller 打包後常出現qt畫面中非png或bmp的圖檔無法顯示，一律就改成png可解決
+*打包後執行出現 執行 pyi_rth_qt4plugins 錯誤的問題，開啟 C:\Users\A\Anaconda3\envs\TeethDetection\Lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py，將倒數第四行
+  from PySide.QtCore import QCoreApplication 改成 from PySide6.QtCore import QCoreApplication
+*打包後執行時出現 RuntimeError: Could not find the matplotlib data files，需降matplotlib到3.03
+
