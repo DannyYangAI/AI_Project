@@ -40,7 +40,7 @@ pyinstaller --onefile -i"D:\Project\myFTP\mirdc.ico"  ./mySFTP.py
 
 執行指令
 #pyinstaller -F --hidden-import PySide6.QtXml --icon=Medicalwp-Medical-Tooth-blue.ico --windowed main_ui.py
-pyinstaller -F --hidden-import PySide6.QtXml --hidden-import matplotlib --icon=Medicalwp-Medical-Tooth-blue.ico  main_ui.py
+pyinstaller -F --hidden-import PySide6.QtXml --hidden-import matplotlib --icon=Medicalwp-Medical-Tooth-blue.ico --windowed main_ui.py
 move D:\Project\TeethDetection\dist\main_ui.exe D:\Project\TeethDetection\main_ui.exe
 
 *--hidden-import PySide6.QtXml 指令可解決執行時找不到檔案特定qt檔的問題
