@@ -2,9 +2,11 @@
 1.vscode 取代Source Insight 追code
   https://yiyuwu.wordpress.com/2017/07/31/windows-10-%E4%B8%8B%E7%94%A8vscode-%E5%8F%96%E4%BB%A3source-insight-%E8%BF%BDcode/
   VSCode + ctags + cscope 筆記
+  https://helenhan.pixnet.net/blog/post/250901329-vscode-%2B-ctags-%2B-cscope-%E7%AD%86%E8%A8%98
 2.vscode 取代spyder 可直接將資料表格化顯示 : Data Viewer 
 
 3.直接看EXCEL檔：Excel Viewer Extension
 
 4.完整教學影片 : https://www.youtube.com/playlist?list=PLo32uKohmrXt7VB91DLB-hMcDcWswE53Y
 
+5.基於Visual Studio Code的C語言開發環境搭建: https://www.itread01.com/content/1545086180.html
