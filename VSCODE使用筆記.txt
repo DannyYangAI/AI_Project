@@ -10,3 +10,11 @@
 4.完整教學影片 : https://www.youtube.com/playlist?list=PLo32uKohmrXt7VB91DLB-hMcDcWswE53Y
 
 5.基於Visual Studio Code的C語言開發環境搭建: https://www.itread01.com/content/1545086180.html
+
+6.vscode 取代 Matlab 編輯環境：VS Code配置Matlab環境 https://blog.csdn.net/ErenTuring/article/details/72996042
+
+7.VSCode中使用Pylint檢查python代碼 https://zhuanlan.zhihu.com/p/262590195
+  vscode針對python編程，簡單設置pylint,解決各種無關的波浪線 https://kknews.cc/code/6a4j6mv.html
+  
+8.Visual Studio Code(VSCode) 必備實用套件 : https://hsiangfeng.github.io/vscode/20191212/2147775133/
+  提高工作效率的 20 個最佳 VSCODE 擴展 : https://x-team.com/blog/best-vscode-extensions/
