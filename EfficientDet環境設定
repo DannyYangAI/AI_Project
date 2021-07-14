@@ -1,0 +1,1 @@
+After running "python setup.py build_ext --inplace" I got the file "compute_overlap.cp36-win_amd64.pyd" which I renamed to "compute_overlap.pyd". I added the .pyd from retinanet/utils to efficientdet/utils and I was able to start training
