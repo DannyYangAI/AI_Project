@@ -1,1 +1,12 @@
 After running "python setup.py build_ext --inplace" I got the file "compute_overlap.cp36-win_amd64.pyd" which I renamed to "compute_overlap.pyd". I added the .pyd from retinanet/utils to efficientdet/utils and I was able to start training
+python train.py --snapshot imagenet --phi  1 --gpu 0 --random-transform --compute-val-loss --freeze-backbone --batch-size 32 --steps 1000 pascal datasets/VOC2012
+
+
+compute-val-loss拿掉，如果沒有驗證集
+
+
+parser.add_argument('--tensorboard-dir', help='Log directory for Tensorboard output',
+                        default='logs\\{}'.format(today))
+                        
+logs/ 改成logs\\ , windows下 路徑才不會ERROR
+vscode 整合tensorboard ,how to launch
