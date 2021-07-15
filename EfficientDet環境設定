@@ -16,3 +16,6 @@ To start a TensorBoard session, open the command palette (Ctrl/Cmd + Shift + P) 
 you will be prompted to select the folder where your TensorBoard log files are located. 
 By default, we will use your current working directory and automatically detect your TensorBoard log files within any subdirectories, 
 but you can also specify your own directory. VS Code will then open a new tab with TensorBoard and its lifecycle will be managed by VS Code as well.
+
+**這篇文率對此包程式碼內容分析很清楚
+https://chtseng.wordpress.com/2020/05/23/efficientdet%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E7%89%A9%E4%BB%B6%E5%81%B5%E6%B8%AC%E6%A8%A1%E5%9E%8B/
