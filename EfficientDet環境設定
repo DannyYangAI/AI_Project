@@ -10,3 +10,9 @@ parser.add_argument('--tensorboard-dir', help='Log directory for Tensorboard out
                         
 logs/ 改成logs\\ , windows下 路徑才不會ERROR
 vscode 整合tensorboard ,how to launch
+
+有存tensorboard 的log , 目前vscode 支援 tensorboard , 說明如下：
+To start a TensorBoard session, open the command palette (Ctrl/Cmd + Shift + P) and search for the command “Python: Launch TensorBoard”. Afterwards, 
+you will be prompted to select the folder where your TensorBoard log files are located. 
+By default, we will use your current working directory and automatically detect your TensorBoard log files within any subdirectories, 
+but you can also specify your own directory. VS Code will then open a new tab with TensorBoard and its lifecycle will be managed by VS Code as well.
