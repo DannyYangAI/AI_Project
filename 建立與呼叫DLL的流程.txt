@@ -1,0 +1,6 @@
+建立與呼叫DLL的流程
+
+教學參考：https://ithelp.ithome.com.tw/articles/10239642   第五天：lib連結?斷開鎖鏈?不，今天是調用dll「靜態」
+
+主要參考流程教學：Visual Studio 2017 建立 DLL(Dynamic Linking Library) http://whaotingblog.blogspot.com/2017/11/visual-studio-2017-dlldynamic-linking.html   
+
