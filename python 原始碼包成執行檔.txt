@@ -51,7 +51,8 @@ move D:\Project\TeethDetection\dist\main_ui.exe D:\Project\TeethDetection\main_u
 *打包後執行出現 執行 pyi_rth_qt4plugins 錯誤的問題，開啟 C:\Users\A\Anaconda3\envs\TeethDetection\Lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_qt4plugins.py，將倒數第四行
   from PySide.QtCore import QCoreApplication 改成 from PySide6.QtCore import QCoreApplication
 *打包後執行時出現 RuntimeError: Could not find the matplotlib data files，需降matplotlib到3.03, 並在執行指令加上--hidden-import matplotlib，照此網頁步驟可成功https://tw511.com/a/01/14824.html
-
+*打包後執行 到 plt.subplots 就閃退(matplotlib套件)，找很久解法如下 https://tipsfordev.com/exe-made-by-pyinstaller-crashes-at-calling-matplotlib
+ 主要是遺失 libiomp5md.dll ，到C:\Users\A\Anaconda3\Library\bin 去複製出放到EXE資料夾下即可
 
 常用參數介紹
 pyinstaller -h 來查看參數
