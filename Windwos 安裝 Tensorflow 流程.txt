@@ -11,6 +11,7 @@
 測試安裝是否成功：開啟 命令提示字元 ，輸入 nvcc -V會出來cuda 版本
 
 3.下載cuDNN： https://developer.nvidia.com/rdp/cudnn-download
+   帳：fc~  密：Suxxxmxxxx07
    選cuDNN v7.6.3 (August 23, 2019), for CUDA 10.1、 再選cuDNN Library for Windows 10
    解壓縮後有三個資料夾，三個資料夾移動到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1，
    以覆蓋掉原有的資料夾
