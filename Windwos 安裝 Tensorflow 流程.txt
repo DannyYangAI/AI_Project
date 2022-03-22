@@ -31,3 +31,8 @@ device:GPU:0 -> device: 0, name: GeForce RTX 2060
 
 
 
+目前辨識使用  tensorflow 1.15
+10.1   7.6.3   ===> tensorflow 1.15  OK
+11.1   8.0.1   ===> tensorflow 1.15  無法使用GPU
+
+
