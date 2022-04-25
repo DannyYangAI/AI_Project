@@ -1,0 +1,3 @@
+conda list报错：TypeError: ‘＜‘ not supported between instances of ‘str‘ and ‘NoneType‘ `$
+
+https://www.cxymm.net/article/qq_40349484/120363661
