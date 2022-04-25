@@ -1,0 +1,5 @@
+Anaconda 環境建立、刪除、備份與還原
+https://ithelp.ithome.com.tw/articles/10255411
+
+清除Anaconda的所有暫存檔(ex.套件安裝檔)
+conda clean --all
