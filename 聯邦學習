@@ -1,0 +1,27 @@
+=============================Intel====================================================================
+intel  的框架 https://github.com/intel/openfl
+Intel  的框架說明文件：https://openfl.readthedocs.io/en/latest/index.html
+OpenFL: An open-source framework for Federated Learning
+ 
+inetel 聯邦文件中，完整說明運行流程(寫CODE用的):
+https://openfl.readthedocs.io/en/latest/running_the_federation.html#director-workflow
+https://towardsdatascience.com/go-federated-with-openfl-8bc145a5ead1
+ 
+openfl 基本的Tutorial 操作教學：https://openfl.readthedocs.io/en/latest/source/workflow/running_the_federation.notebook.html#running-notebook
+														   https://github.com/intel/openfl/blob/develop/openfl-tutorials/interactive_api/PyTorch_Kvasir_UNet/workspace/PyTorch_Kvasir_UNet.ipynb  (Federated Kvasir with Director example)
+
+Intel發表的論文
+Federated learning in medicine: facilitating multi-institutional collaborations without sharing patient data
+https://www.nature.com/articles/s41598-020-69250-1	
+
+OpenFL: An open-source framework for Federated Learning (有教學程式! 開發使用手冊)
+https://arxiv.org/pdf/2105.06413.pdf
+=================================================openfl執行流程============================================
+1Anaconda => openfl env 啟動
+
+啟動 Director
+fx director start --disable-tls -c director_config.yaml
+
+啟動 envoy
+fx envoy start -n env_one --disable-tls --envoy-config-path envoy_config_one.yaml -dh localhost -dp 50051
+
