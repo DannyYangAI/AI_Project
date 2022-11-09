@@ -25,3 +25,17 @@ fx director start --disable-tls -c director_config.yaml
 啟動 envoy
 fx envoy start -n env_one --disable-tls --envoy-config-path envoy_config_one.yaml -dh localhost -dp 50051
 
+===============================================
+快速啟動並執行聯邦學習
+Aggregator
+
+Collaborator01
+Collaborator02
+
+
+
+
+
+
+
+
