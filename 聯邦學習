@@ -25,12 +25,81 @@ fx director start --disable-tls -c director_config.yaml
 啟動 envoy
 fx envoy start -n env_one --disable-tls --envoy-config-path envoy_config_one.yaml -dh localhost -dp 50051
 
-===============================================
-快速啟動並執行聯邦學習
-Aggregator
 
-Collaborator01
-Collaborator02
+=============聯邦學習樣版建立流程==============================
+建立His_Federation 資料夾，後續操作建立資料均於此資料夾下
+
+[Aggregator端:]
+His_Federation 資料夾下建立 His_Aggregator資料夾
+anaconda 建立環境 His_Aggregator ，python 版本3.7
+active His_Aggregator env 開console
+
+
+安裝樣版與下載訓練資料：					     fx workspace create --prefix ~/His_Federation/His_Aggregator --template tf_cnn_histology
+移動到操作Aggregator的目錄: 					cd His_Federation/His_Aggregator
+初始化Aggregator:    	     				    fx plan initialize
+若下載失敗，多執行幾次：           				     fx plan initialize
+檢查 hostname	:							                hostname -A   ==> check
+檢查憑證頒發機構資料夾(是空的)                 ls cert
+建立憑證頒發機構 (Certificate authority)   fx workspace certify
+檢查憑證頒發機構資料夾(有crt檔)                ls cert
+建立憑證請求文件                         				    fx aggregator  generate-cert-request  (後面若指定網路位置加 export FQDN=x.x.x.x)
+簽發憑證															fx aggregator  certify
+建查簽發憑證是否成功                 					 ls cert/server
+打包Aggregator工作區的檔案和環境設定	fx workspace export    ==>輸出 His_Aggregator.zip
+
+[Collaborator端:]
+以下只列出編號1的Collaborator，其他編號Collaborator操作流程一樣
+His_Federation 資料夾下建立 His_Collaborator1資料夾
+將His_Aggregator.zip 複制到 Federation/His_Collaborator1 資料夾下
+anaconda 建立環境 His_Collaborator1 ，python 版本3.7
+active His_Collaborator1 env 開console
+
+安裝openfl :  																pip install openfl
+移動到操作His_Collaborator1的目錄: 					cd ~/His_Federation/His_Collaborator1/
+匯入Aggregator工作區資料與環境                         fx workspace import --archive His_Aggregator.zip
+移動到操作His_Collaborator1的目錄: 					cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
+建立Collaborator1憑證請求文件 							fx collaborator generate-cert-request -n Hospital01   ==>輸出壓縮檔 col_hospital01_to_agg_cert_request.zip
+
+
+將憑證包 col_hospital01_to_agg_cert_request.zip複製到Aggregator端=>Copy to     His_Federation/His_Aggregator
+
+[Aggregator端:]
+移動到操作Aggregator的目錄: 								cd His_Federation/His_Aggregator
+簽發Collaborator1 CSR憑證包：                 			fx collaborator certify --request-pkg col_hospital01_to_agg_cert_request.zip  ==> 輸出壓縮檔  agg_to_col_hospital01_signed_cert.zip
+
+將已簽發Collaborator1 CSR憑證包  agg_to_col_hospital01_signed_cert.zip  複製到Collaboratorr端=>Copy to     His_Federation/His_Collaborator1
+
+[Collaborator端:]
+匯入已簽發憑證和憑證串鍊(Certificate chain) :  	fx collaborator certify --import agg_to_col_hospital01_signed_cert.zip
+
+其他編號Collaborator操作流程一樣從第24行開始重複建立
+
+
+====================啟動聯邦學習========================================================
+
+開啟Console:
+conda activate His_Aggregator
+(需要嗎)cd His_Federation/His_Aggregator
+fx aggregator start
+
+開啟Console:
+conda activate His_Collaborator1
+(需要嗎) cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
+fx collaborator start -n Hospital01
+
+開啟Console:
+conda activate His_Collaborator2
+(需要嗎) cd  ~/His_Federation/His_Collaborator2/His_Aggregator/
+fx collaborator start -n Hospital02
+
+開啟Console:
+conda activate His_Collaborator3
+(需要嗎) cd  ~/His_Federation/His_Collaborator3/His_Aggregator/
+fx collaborator start -n Hospital03
+
+
+
 
 
 
