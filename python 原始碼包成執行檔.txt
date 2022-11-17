@@ -66,3 +66,8 @@ pyinstaller -h 來查看參數
 細胞辨識的執行檔這邊不多描述，直接寫成批次檔，要看執行指令直接看bat檔
 另，編成執行檔後，在另一台筆電執行有出現這個錯誤: forrtl: error (200): program aborting due to control-C event
 解決方法參考https://python.iitter.com/other/180912.html ，實作上將scipy 強制升級到最新
+
+
+升級到TF2.5後，有一天20121117 突然Pyinstall 過不了，錯誤發生在hook tensorflow  fail
+至pyinstall github 下載https://github.com/pyinstaller/pyinstaller-hooks-contrib/blob/master/src/_pyinstaller_hooks_contrib/hooks/stdhooks/hook-tensorflow.py
+更新此檔到\hook\下，就解決了
