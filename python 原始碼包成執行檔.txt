@@ -70,4 +70,5 @@ pyinstaller -h 來查看參數
 
 升級到TF2.5後，有一天20121117 突然Pyinstall 過不了，錯誤發生在hook tensorflow  fail
 至pyinstall github 下載https://github.com/pyinstaller/pyinstaller-hooks-contrib/blob/master/src/_pyinstaller_hooks_contrib/hooks/stdhooks/hook-tensorflow.py
-更新此檔到\hook\下，就解決了
+更新此檔到\hook\下，pyinstall 參數加上  --hidden-import="sklearn.utils._typedefs" --hidden-import="sklearn.neighbors._partition_nodes" 
+就解決了
