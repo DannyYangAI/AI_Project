@@ -77,4 +77,25 @@ pyinstaller -h 來查看參數
 pyinstall 之執行檔發生numpy error   ImportError: numpy.core.multiarray failed to import
 這是因為pyinstall 執行時 opencv 、numpy 版本不匹配問題，目前確認 此組合可以 pip install opencv-python==3.4.2.17 numpy==1.14.5
 
+=====匯出==============
+https://www.796t.com/article.php?id=80192
 
+
+
+bleak==0.13.0        藍芽
+dtaidistance==2.3.6  DTW
+lxml==4.6.1          XML parser
+matplotlib==3.1.1    繪圖
+numpy==1.19.2        數值計算
+pandas==1.1.5        表計算
+paramiko==2.7.2      FTP
+Pillow==9.3.0        繪圖
+protobuf==4.21.9     For google tesorflow
+PyQt4==4.11.4        UI
+PyQt5==5.15.7        UI
+pyserial==3.5        XX 
+PySide6==6.4.1       UI
+reportlab==3.5.67    報表
+sip==6.7.5           labelme用(是否可移除)
+six==1.15.0          labelme用(是否可移除)
+tensorflow==1.13.1   BJ4
