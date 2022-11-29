@@ -29,3 +29,19 @@ try:
 except ImportError:
     from PyQt4.QtGui import *
     from PyQt4.QtCore import *
+
+
+=============================以上執行完後，雖能run 但仍有問題(背景顏色跑掉)
+改用export yaml  再 create  yaml 環境
+中除有遇到C:\Users\A\Anaconda3\pkgs 問題，要清除
+
+# conda clean使用
+## 删除从不使用的包
+
+$ conda clean --packages
+## 删除tar包
+
+$ conda clean --tarballs
+## 删除索引缓存、锁定文件、未使用过的包和tar包。
+
+$ conda clean -a 
