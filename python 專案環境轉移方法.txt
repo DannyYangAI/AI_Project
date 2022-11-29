@@ -32,8 +32,11 @@ except ImportError:
 
 
 =============================以上執行完後，雖能run 但仍有問題(背景顏色跑掉)
+
+其他注意事項：
+
 改用export yaml  再 create  yaml 環境
-中除有遇到C:\Users\A\Anaconda3\pkgs 問題，要清除
+塗中有遇到C:\Users\A\Anaconda3\pkgs 問題，要清除
 
 # conda clean使用
 ## 删除从不使用的包
@@ -45,3 +48,13 @@ $ conda clean --tarballs
 ## 删除索引缓存、锁定文件、未使用过的包和tar包。
 
 $ conda clean -a 
+
+
+============================================================================
+
+[最後解] 還是用 conda clean -a + 
+               conda env export > XXXX.yaml  +  
+              conda env create -f XXXX.yml
+              才行
+              
+              
