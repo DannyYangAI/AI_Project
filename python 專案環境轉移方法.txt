@@ -1,0 +1,12 @@
+使用pipreqs匯出當前專案的所有元件及其版本  https://webcache.googleusercontent.com/search?q=cache:pugxBswf4gEJ:https://www.796t.com/article.php%3Fid%3D80192&cd=3&hl=zh-TW&ct=clnk&gl=tw
+
+於anaconda 開發專案，一般都使用 conda env export > XXXX.yaml 匯出專案環境使用的package  , 做為轉移專案環境到別台電腦的方法，但是匯出的package 很多並非是使用者安裝的
+
+pipreqs只會匯出開發專案時，使用者自己安裝的package, 不會匯入環境預設的各種package
+
+流程如下：
+
+1 下載pipreqs工具包 : pip install pipreqs
+2 專案路徑下，生成依賴包(Packag)的txt文件 : pipreqs ./ --encoding=utf8
+3 檢視 requirements.txt，可以看到需要安裝的Package
+4 在別台電腦安裝此專案需要的package  : pip install -r  requirements.txt
