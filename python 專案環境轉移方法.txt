@@ -12,3 +12,4 @@ pipreqs只會匯出開發專案時，使用者自己安裝的package, 不會匯�
 4 在別台電腦安裝此專案需要的package  : pip install -r  requirements.txt
 
 python 版本不在匯出的package 中，需自行記錄
+專案資料夾下不能有不相干的Python 檔，比如測試檔、網路下載測試檔、舊的 code 備份檔…等
