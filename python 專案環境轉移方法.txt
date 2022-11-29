@@ -13,3 +13,19 @@ pipreqs只會匯出開發專案時，使用者自己安裝的package, 不會匯�
 
 python 版本不在匯出的package 中，需自行記錄
 專案資料夾下不能有不相干的Python 檔，比如測試檔、網路下載測試檔、舊的 code 備份檔…等
+Pipreqs 雖然可以製作與原環境相比較乾淨的包，但問題很多，需要搭配yaml 檔去修改
+需要 conda env export > XXXX.yaml 去看pip 安裝了什麼沒有在pipreqs出現
+目前測試的問題如下：
+1 Pipreqs 是從專案中的.py檔抓import package，會有語法上的誤判, 比如A package  同時需要安裝 B package 配合，但B package 不在py檔中 的import，又或者如下程式 except中的import 其實不需安裝
+2 Pipreqs requirement 中各package的版本，不是原專案實際安裝的版本，會有很多版本找不到的錯誤，需要對照yaml 檔的pip 部分修正
+
+務必要確認pip install -r  requirements.txt 可正常安裝所有包，否則要個別解決
+
+
+try:
+    from PyQt5.QtGui import *
+    from PyQt5.QtCore import *
+    from PyQt5.QtWidgets import *
+except ImportError:
+    from PyQt4.QtGui import *
+    from PyQt4.QtCore import *
