@@ -76,7 +76,7 @@ pyinstaller -h 來查看參數
 ------numpy+ opencv 問題--------
 pyinstall 之執行檔發生numpy error   ImportError: numpy.core.multiarray failed to import
 這是因為pyinstall 執行時 opencv 、numpy 版本不匹配問題，目前確認 此組合可以 pip install opencv-python==3.4.2.17 numpy==1.14.5
-最後測出 opencv 3.4.2 , numpy 最新 1.19.5 就可以了
+最後測出 專案需降到 opencv 3.4.2 (尚未降) , numpy 最新 1.19.5 就可以了
 
 
 =====匯出==============
