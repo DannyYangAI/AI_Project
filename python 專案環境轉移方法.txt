@@ -10,3 +10,5 @@ pipreqs只會匯出開發專案時，使用者自己安裝的package, 不會匯�
 2 專案路徑下，生成依賴包(Packag)的txt文件 : pipreqs ./ --encoding=utf8
 3 檢視 requirements.txt，可以看到需要安裝的Package
 4 在別台電腦安裝此專案需要的package  : pip install -r  requirements.txt
+
+python 版本不在匯出的package 中，需自行記錄
