@@ -101,7 +101,24 @@ fx collaborator start -n Hospital03
 
 
 
+======================================Intel 回覆訓練完的模型轉成可以使用的推論模型============================================
 
+
+1.於Anaconda建立新的環境
+2.開terminal
+3 強制安裝Python 3.8.0
+4 下載oepnfl branch :   https://github.com/intel/openfl/branches/active
+openfl-snyk-fix-7063a34425fb1364d8804ffdf9c464ef.zip   Updated Dec 15, 2022 by psfoley
+
+
+5 安裝openfl :   python setup.py install
+
+6 pip  install tensorflow==2.7.0
+7 pip install tensorflow_datasets
+8 到 ~/His_Federation/His_Aggregator 輸入下面行
+fx model save -i "./save/tf_cnn_histology_best.pbuf" -o tf_cnn_histology_best.h5
+
+9 出現OK ==〉完成
 
 
 
