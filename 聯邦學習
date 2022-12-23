@@ -81,23 +81,23 @@ active His_Collaborator1 env 開console
 
 開啟Console:
 conda activate His_Aggregator
-(需要嗎)cd His_Federation/His_Aggregator
+cd His_Federation/His_Aggregator
 fx aggregator start
 
 開啟Console:
 conda activate His_Collaborator1
-(需要嗎) cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
-fx collaborator start -n Hospital01
+cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
+fx collaborator start -n hospital01
 
 開啟Console:
 conda activate His_Collaborator2
-(需要嗎) cd  ~/His_Federation/His_Collaborator2/His_Aggregator/
-fx collaborator start -n Hospital02
+cd  ~/His_Federation/His_Collaborator2/His_Aggregator/
+fx collaborator start -n hospital02
 
 開啟Console:
 conda activate His_Collaborator3
-(需要嗎) cd  ~/His_Federation/His_Collaborator3/His_Aggregator/
-fx collaborator start -n Hospital03
+cd  ~/His_Federation/His_Collaborator3/His_Aggregator/
+fx collaborator start -n hospital03
 
 
 
