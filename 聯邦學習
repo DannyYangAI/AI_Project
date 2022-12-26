@@ -34,6 +34,8 @@ fx envoy start -n env_one --disable-tls --envoy-config-path envoy_config_one.yam
 His_Federation 資料夾下建立 His_Aggregator資料夾
 anaconda 建立環境 His_Aggregator ，python 版本3.7
 active His_Aggregator env 開console
+移到 His_Aggregator資料夾
+安裝openfl :	pip install openfl
 
 
 安裝樣版與下載訓練資料：										fx workspace create --prefix ~/His_Federation/His_Aggregator --template tf_cnn_histology
@@ -103,10 +105,10 @@ fx collaborator start -n hospital03
 
 ======================================Intel 回覆訓練完的模型轉成可以使用的推論模型============================================
 
-
+windows環境
 1.於Anaconda建立新的環境
 2.開terminal
-3 強制安裝Python 3.8.0
+3 強制安裝Python 3.8.0    conda install python==3.8.0
 4 下載oepnfl branch :   https://github.com/intel/openfl/branches/active
 openfl-snyk-fix-7063a34425fb1364d8804ffdf9c464ef.zip   Updated Dec 15, 2022 by psfoley
 
@@ -121,7 +123,64 @@ fx model save -i "./save/tf_cnn_histology_best.pbuf" -o tf_cnn_histology_best.h5
 9 出現OK ==〉完成
 
 
+======================================Intel 訓練 聯邦學習 windows 環境 ===============================================
+Aggregator Collaborator  資料夾命名稱 與Ubuntu 略有不同，自行變更
+聯邦學習樣板建立流程 
+建立His_Federation 資料夾，後續操作建立資料均於此資料夾下
+[Aggregator端:]
+His_Federation 資料夾下建立 His_Aggregator資料夾
+anaconda 建立環境 His_Aggregator ，python 版本3.7
+active His_Aggregator env 開console
+移動到操作Aggregator的目錄:  cd D:\Project\Openfl_Training\Aggregator
+conda uninstall python
+conda install python==3.8.0 #3.7 openfl 有版本相容問題 
+pip install openfl
+
+fx workspace create --prefix D:\Project\Openfl_Training\Aggregator --template tf_cnn_histology
+若失敗，再執行可成功
+
+移動到操作Aggregator的目錄:                cd  D:\Project\Openfl_Training\Aggregator
+初始化Aggregator:    	               fx plan initialize      (Aggregator若指定網路位置加  -a aggregator-hostname.internal-domain.com)
+若下載失敗 看這個網址，打開windows 長路徑限制  https://docs.python.org/3/using/windows.html#removing-the-max-path-limitation
+
+檢查 hostname	:			hostname  ==> check
+檢查憑證頒發機構資料夾(是空的)	      dir cert
+建立憑證頒發機構 (Certificate authority)   fx workspace certify
+檢查憑證頒發機構資料夾(有crt檔)             dir cert
+建立憑證請求文件                           fx aggregator  generate-cert-request  (Aggregator若指定網路位置加 --fqdn aggregator-hostname.internal-domain.com)
+簽發憑證				      fx aggregator  certify
+建查簽發憑證是否成功                 	 dir cert\server
+打包Aggregator工作區的檔案和環境設定	       fx workspace export    ==>輸出 His_Aggregator.zip
+
+[Collaborator端:]
+以下只列出編號1的Collaborator，其他編號Collaborator操作流程一樣
+His_Federation 資料夾下建立 His_Collaborator1資料夾
+將His_Aggregator.zip 複制到 Federation/His_Collaborator1 資料夾下
+anaconda 建立環境 His_Collaborator1 ，python 版本3.7
+active His_Collaborator1 env 開console
+
+安裝openfl :  				pip install openfl
+移動到操作His_Collaborator1的目錄: 	   cd D:\Project\Openfl_Training\Collaborator1
+匯入Aggregator工作區資料與環境             fx workspace import --archive Aggregator.zip
+移動到操作His_Collaborator1的目錄: 	   cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
+建立Collaborator1憑證請求文件 							fx collaborator generate-cert-request -n Hospital01   ==>輸出壓縮檔 col_hospital01_to_agg_cert_request.zip
+
+conda uninstall python
+conda install python==3.8.0
+pip install openfl
 
 
+  Using cached absl_py-1.3.0-py3-none-any.whl (124 kB)
+ERROR: Cannot install -r requirements.txt (line 35), openfl==1.4 and protobuf==3.20.3 because these package versions have conflicting dependencies.
 
+The conflict is caused by:
+    The user requested protobuf==3.20.3
+    googleapis-common-protos 1.57.0 depends on protobuf!=3.20.0, !=3.20.1, !=4.21.1, !=4.21.2, !=4.21.3, !=4.21.4, !=4.21.5, <5.0.0dev and >=3.19.5
+    openfl 1.4 depends on protobuf==3.19.4
 
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+EXCEPTION : Command '['C:\\Users\\A\\Anaconda3\\envs\\OpenFL_Collaborator2\\python.exe', '-m', 'pip', 'install', '-r', 'requirements.txt']' returned non-zero exit status 1.
