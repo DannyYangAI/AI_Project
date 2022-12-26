@@ -184,3 +184,12 @@ To fix this you could try to:
 
 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
 EXCEPTION : Command '['C:\\Users\\A\\Anaconda3\\envs\\OpenFL_Collaborator2\\python.exe', '-m', 'pip', 'install', '-r', 'requirements.txt']' returned non-zero exit status 1.
+=====================================================================================
+
+  fx director start --disable-tls -c director_config.yaml
+ 
+ fx envoy start -n "envoy_one" --disable-tls --envoy-config-path "envoy_config_one.yaml" -dh localhost -dp 50051
+  fx envoy start -n "envoy_two" --disable-tls --envoy-config-path "envoy_config_two.yaml" -dh localhost -dp 50051
+  
+  jupyter lab Tensorflow_MNIST.ipynb
+  
