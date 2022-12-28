@@ -1,0 +1,45 @@
+Keras 學習筆記
+
+載入影像資料
+https://ithelp.ithome.com.tw/articles/10235805
+ImageDataGenerator是舊的keras 方法，https://machinelearningmastery.com/how-to-load-large-datasets-from-directories-for-deep-learning-with-keras/
+image_dataset_from_directory 是新的，TF也支援新的 tf.keras.preprocessing.image_dataset_from_directory
+https://www.tensorflow.org/tutorials/load_data/images#fromHistory
+看這篇實作  https://github.com/mc6666/Keras_tutorial/blob/master/12_01_CatAndDog.ipynb
+https://www.kaggle.com/code/mksaad/google-image-classification/notebook
+
+Day 01 ~ AI從入門到放棄系列
+https://ithelp.ithome.com.tw/articles/10236948
+輕鬆掌握 Keras 及相關應用 系列
+https://ithelp.ithome.com.tw/users/20001976/ironman/3128
+
+
+Keras簡易完整流程範例
+https://www.projectpro.io/recipes/run-and-fit-data-with-keras-model
+
+
+Keras熱區
+https://ithelp.ithome.com.tw/articles/10244860
+https://keras.io/examples/vision/grad_cam/
+
+
+run_keras_simple
+https://github.com/ZFTurbo/KAGGLE_DISTRACTED_DRIVER
+
+
+fit_generator 
+
+
+Keras - Zoo
+https://github.com/qubvel/classification_models
+
+
+Keras- Application
+https://keras.io/api/applications/
+
+
+Keras 預訓練模型 layer 抽換
+https://avacheng.github.io/post/20190817/
+https://lufor129.medium.com/%E6%95%B4%E7%90%86-%E7%B6%B2%E8%B7%AF%E4%B8%8A%E5%B8%B8%E8%A6%8B%E8%BC%83%E7%82%BA%E7%B0%A1%E5%96%AE%E7%9A%84transfer-learning-%E4%BD%9C%E6%B3%95-tensorflow-e7cb32031d1#
+
+
