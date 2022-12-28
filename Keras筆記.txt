@@ -7,6 +7,7 @@ image_dataset_from_directory 是新的，TF也支援新的 tf.keras.preprocessin
 https://www.tensorflow.org/tutorials/load_data/images#fromHistory
 看這篇實作  https://github.com/mc6666/Keras_tutorial/blob/master/12_01_CatAndDog.ipynb
 https://www.kaggle.com/code/mksaad/google-image-classification/notebook
+https://ithelp.ithome.com.tw/m/articles/10268863
 
 Day 01 ~ AI從入門到放棄系列
 https://ithelp.ithome.com.tw/articles/10236948
