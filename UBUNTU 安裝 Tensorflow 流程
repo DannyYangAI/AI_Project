@@ -51,7 +51,9 @@ sudo apt-get update
 sudo apt install --no-install-recommends cuda-10-0
 (此指令會執行很久…可以先去下載第8和第9的安裝檔，但先不安裝)
 
-
+7-2.(2023補充) 安裝 各種版本 CUDA方法
+nivida 官方cuda 安裝 說明網頁 https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#pre-installation-actions
+官方網站，依環境版本可生成安裝指令：https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local
 
 8.安裝cuDNN
   到https://developer.nvidia.com/rdp/cudnn-download  下載 版本：7.6.3 CUDA10
