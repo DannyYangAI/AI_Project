@@ -8,7 +8,7 @@ https://openfl.readthedocs.io/en/latest/running_the_federation.html#director-wor
 https://towardsdatascience.com/go-federated-with-openfl-8bc145a5ead1
  
 openfl 基本的Tutorial 操作教學：https://openfl.readthedocs.io/en/latest/source/workflow/running_the_federation.notebook.html#running-notebook
-														   https://github.com/intel/openfl/blob/develop/openfl-tutorials/interactive_api/PyTorch_Kvasir_UNet/workspace/PyTorch_Kvasir_UNet.ipynb  (Federated Kvasir with Director example)
+			      https://github.com/intel/openfl/blob/develop/openfl-tutorials/interactive_api/PyTorch_Kvasir_UNet/workspace/PyTorch_Kvasir_UNet.ipynb  (Federated Kvasir with Director example)
 
 Intel發表的論文
 Federated learning in medicine: facilitating multi-institutional collaborations without sharing patient data
@@ -62,18 +62,18 @@ active His_Aggregator env 開console
 安裝openfl :	pip install openfl
 
 
-安裝樣版與下載訓練資料：										fx workspace create --prefix ~/His_Federation/His_Aggregator --template tf_cnn_histology
-移動到操作Aggregator的目錄: 								cd His_Federation/His_Aggregator
-初始化Aggregator:    												fx plan initialize      (Aggregator若指定網路位置加  -a aggregator-hostname.internal-domain.com)
-若下載失敗，多執行幾次：           							fx plan initialize
-檢查 hostname	:							                			hostname -A   ==> check
-檢查憑證頒發機構資料夾(是空的)                			ls cert
-建立憑證頒發機構 (Certificate authority)   			fx workspace certify
-檢查憑證頒發機構資料夾(有crt檔)                			ls cert
-建立憑證請求文件                         				    			fx aggregator  generate-cert-request  (Aggregator若指定網路位置加 --fqdn aggregator-hostname.internal-domain.com)
-簽發憑證																		fx aggregator  certify
-建查簽發憑證是否成功                 					 			ls cert/server
-打包Aggregator工作區的檔案和環境設定				fx workspace export    ==>輸出 His_Aggregator.zip
+安裝樣版與下載訓練資料：                        fx workspace create --prefix ~/His_Federation/His_Aggregator --template tf_cnn_histology
+移動到操作Aggregator的目錄:                    cd His_Federation/His_Aggregator
+初始化Aggregator:                             fx plan initialize      (Aggregator若指定網路位置加  -a aggregator-hostname.internal-domain.com)
+若下載失敗，多執行幾次：                        fx plan initialize
+檢查 hostname	:                           hostname -A   ==> check
+檢查憑證頒發機構資料夾(是空的)                  ls cert
+建立憑證頒發機構 (Certificate authority)       fx workspace certify
+檢查憑證頒發機構資料夾(有crt檔)                 ls cert
+建立憑證請求文件                               fx aggregator  generate-cert-request  (Aggregator若指定網路位置加 --fqdn aggregator-hostname.internal-domain.com)
+簽發憑證                                       fx aggregator  certify
+建查簽發憑證是否成功                            ls cert/server
+打包Aggregator工作區的檔案和環境設定            fx workspace export    ==>輸出 His_Aggregator.zip
 
 [Collaborator端:]
 以下只列出編號1的Collaborator，其他編號Collaborator操作流程一樣
@@ -82,23 +82,24 @@ His_Federation 資料夾下建立 His_Collaborator1資料夾
 anaconda 建立環境 His_Collaborator1 ，python 版本3.7
 active His_Collaborator1 env 開console
 
-安裝openfl :  																pip install openfl
-移動到操作His_Collaborator1的目錄: 					cd ~/His_Federation/His_Collaborator1/
-匯入Aggregator工作區資料與環境                         fx workspace import --archive His_Aggregator.zip
-移動到操作His_Collaborator1的目錄: 					cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
-建立Collaborator1憑證請求文件 							fx collaborator generate-cert-request -n Hospital01   ==>輸出壓縮檔 col_hospital01_to_agg_cert_request.zip
-
+安裝openfl :                                   pip install openfl
+移動到操作His_Collaborator1的目錄:              cd ~/His_Federation/His_Collaborator1/
+匯入Aggregator工作區資料與環境                  fx workspace import --archive His_Aggregator.zip
+移動到操作His_Collaborator1的目錄:              cd  ~/His_Federation/His_Collaborator1/His_Aggregator/
+建立Collaborator1憑證請求文件                   fx collaborator generate-cert-request -n Hospital01   
+                                               ==>輸出壓縮檔 col_hospital01_to_agg_cert_request.zip
 
 將憑證包 col_hospital01_to_agg_cert_request.zip複製到Aggregator端=>Copy to     His_Federation/His_Aggregator
 
 [Aggregator端:]
-移動到操作Aggregator的目錄: 								cd His_Federation/His_Aggregator
-簽發Collaborator1 CSR憑證包：                 			fx collaborator certify --request-pkg col_hospital01_to_agg_cert_request.zip  ==> 輸出壓縮檔  agg_to_col_hospital01_signed_cert.zip
+移動到操作Aggregator的目錄:                     cd His_Federation/His_Aggregator
+簽發Collaborator1 CSR憑證包：                  fx collaborator certify --request-pkg col_hospital01_to_agg_cert_request.zip  
+                                              ==> 輸出壓縮檔  agg_to_col_hospital01_signed_cert.zip
 
 將已簽發Collaborator1 CSR憑證包  agg_to_col_hospital01_signed_cert.zip  複製到Collaborator端=>Copy to     His_Federation/His_Collaborator1
 
 [Collaborator端:]
-匯入已簽發憑證和憑證串鍊(Certificate chain) :  	fx collaborator certify --import agg_to_col_hospital01_signed_cert.zip
+匯入已簽發憑證和憑證串鍊(Certificate chain) :   fx collaborator certify --import agg_to_col_hospital01_signed_cert.zip
 
 其他編號Collaborator操作流程一樣從第24行開始重複建立
 
