@@ -59,3 +59,16 @@ sudo docker version
 
 4、測試Docker
 sudo docker run hello-world
+
+
+=======================OpenSSH
+
+輸入SSH Server安裝指令
+sudo apt-get install openssh-server
+
+設定啟動服務
+sudo systemctl enable ssh
+
+立即啟動ssh服務
+sudo systemctl start ssh
+
