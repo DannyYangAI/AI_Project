@@ -1,3 +1,22 @@
+極簡版===============================================================================================================================
+sudo apt-get update
+sudo apt install docker.io
+sudo snap install docker
+docker --version
+sudo docker run hello-world
+
+簡單版===============================================================================================================================
+
+apt-get update
+apt-get upgrade
+curl -sSL https://get.docker.com/ubuntu/ | sudo sh
+docker version
+檢驗Docker是否安裝成功
+docker info
+
+
+
+完整版==============================================================================================================
 1、更新 Ubuntu
 sudo apt update
 sudo apt upgrade
