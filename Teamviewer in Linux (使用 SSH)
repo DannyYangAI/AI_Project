@@ -1,0 +1,65 @@
+https://hackmd.io/@n1Jz07zhR0ana2MFDq3Lvg/BycRLp1MM?type=view
+
+安裝teamviewer
+# 下載安裝程式
+wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+
+# 安裝teamviewer，使用f參數把denpendency都裝上
+sudo apt-get install -f teamviewer_amd64.deb
+
+
+# 啟用teamviewer
+teamviewer --daemon start
+
+
+# 設定密碼
+teamviewer passwd [密碼]
+
+
+# 查看id
+teamviewer --info
+
+## 會出現以下資訊
+TeamViewer                           13.0.5693  (DEB)
+
+ TeamViewer ID:                        XXXXXXXX
+
+ teamviewerd status                   ● teamviewerd.service - TeamViewer remote control daemon
+   Loaded: loaded (/etc/systemd/system/teamviewerd.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2017-12-14 18:09:14 CST; 2min 5s ago
+  Process: 3661 ExecStart=/opt/teamviewer/tv_bin/teamviewerd -d (code=exited, status=0/SUCCESS)
+ Main PID: 3664 (teamviewerd)
+    Tasks: 22
+   Memory: 8.3M
+      CPU: 336ms
+   CGroup: /system.slice/teamviewerd.service
+           └─3664 /opt/teamviewer/tv_bin/teamviewerd -d
+
+
+
+
+上面的 XXXXXXXX 就是機器的id，跟平常用GUI登錄要打上的id是一樣的。密碼就是之前使用passwd設定的部分。
+
+上面設定完以後，就可以直接用Teamviewer連線。不過一開始登進去只會提供登入機器的提示字元，還需要更進一步打上登入機器的帳號密碼。
+換句話說，要使用該機器的人，都會先得到一組共同的機器ID跟密碼，然後才用自己的帳密登錄。
+
+
+SSH  ===> Ubuntu 安裝和啟用 SSH 登入
+https://seanhung365.pixnet.net/blog/post/212779848-ubuntu-%E5%AE%89%E8%A3%9D%E5%92%8C%E5%95%9F%E7%94%A8-ssh-%E7%99%BB%E5%85%A5
+
+安裝 OpenSSH Server 
+sudo apt-get install openssh-server
+
+ssh 帳號@主機
+這裡的「主機」就是遠端主機的 IP 位址或主機名稱，而「帳號」就是那一台遠端主機上的帳號名稱。
+
+# 連線至 myhost.gtwang.org，以 seal 這個帳號登入（本地端執行指令）
+ssh seal@myhost.gtwang.org
+建立連線時，要輸入該帳號的密碼，通過認證之後，就可以登入該主機，遠端進行操作。
+
+主機的指定也可以使用 IP 位址，例如：
+# 連線至 192.168.1.2，以 seal 這個帳號登入（本地端執行指令）
+ssh seal@192.168.1.2
+
+
+
