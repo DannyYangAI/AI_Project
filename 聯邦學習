@@ -212,3 +212,5 @@ EXCEPTION : Command '['C:\\Users\\A\\Anaconda3\\envs\\OpenFL_Collaborator2\\pyth
 
 上述問題 aggregator 與 Director Base 均有發生
 
+Quick install cuda 
+sudo apt install nvidia-cuda-toolkit
