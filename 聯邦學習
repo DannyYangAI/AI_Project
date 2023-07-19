@@ -214,3 +214,9 @@ EXCEPTION : Command '['C:\\Users\\A\\Anaconda3\\envs\\OpenFL_Collaborator2\\pyth
 
 Quick install cuda 
 sudo apt install nvidia-cuda-toolkit
+
+
+====anaconda-navigator 開不起來停在loadding progress...…===============
+重新安裝anaconda-navigator，安裝不會造成已建立的各個環境消失，仍在
+conda remove anaconda-navigator
+conda install anaconda-navigator
