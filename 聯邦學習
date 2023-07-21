@@ -246,3 +246,4 @@ $ sudo reboot
 
 遠端連線
 在 Windows 開啟內建 mstsc (遠端桌面連線)，輸入 server 的 IP、username 與 password
+https://www.myfreax.com/how-to-install-xrdp-on-ubuntu-18-04/
