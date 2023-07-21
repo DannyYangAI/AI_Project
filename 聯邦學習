@@ -220,3 +220,29 @@ sudo apt install nvidia-cuda-toolkit
 重新安裝anaconda-navigator，安裝不會造成已建立的各個環境消失，仍在
 conda remove anaconda-navigator
 conda install anaconda-navigator
+
+
+
+
+在 Ubuntu 18.04 使用 xrdp 遠端多人多工
+
+環境
+Ubuntu 18.04 LTS
+
+安裝 xrdp
+Ubuntu18.04 中 xrdp 會需要某些不相容的軟體包 (參考：Better Fix xRDP issue on Ubuntu 18.04.2)，要先裝修正檔
+$ sudo add-apt-repository ppa:martinx/xrdp-hwe-18.04
+$ sudo apt-get update
+
+再行安裝 xrdp
+$ sudo apt-get install xrdp xorg
+
+需將 xrdp 加入 ssl-cert 群組，
+$ sudo adduser xrdp ssl-cert
+$ sudo reboot
+
+重新啟動
+這步很重要，無法連線很可能是這步驟沒做到
+
+遠端連線
+在 Windows 開啟內建 mstsc (遠端桌面連線)，輸入 server 的 IP、username 與 password
