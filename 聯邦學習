@@ -247,3 +247,8 @@ $ sudo reboot
 遠端連線
 在 Windows 開啟內建 mstsc (遠端桌面連線)，輸入 server 的 IP、username 與 password
 https://www.myfreax.com/how-to-install-xrdp-on-ubuntu-18-04/
+
+windows 下殺掉anaconda
+tasklist|findstr "pythonw"  列出的pid 殺掉
+taskkill /pid 16892 /f
+conda update anaconda-navigator  更新anaconda 
