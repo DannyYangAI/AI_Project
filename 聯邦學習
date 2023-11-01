@@ -224,7 +224,7 @@ conda install anaconda-navigator
 
 
 
-在 Ubuntu 18.04 使用 xrdp 遠端多人多工
+在 Ubuntu 18.04 使用 xrdp 遠端桌面多人多工--------
 
 環境
 Ubuntu 18.04 LTS
@@ -252,13 +252,6 @@ windows 下殺掉anaconda
 tasklist|findstr "pythonw"  列出的pid 殺掉
 taskkill /pid 16892 /f
 conda update anaconda-navigator  更新anaconda 
-
-Pdf 論文轉譯流程
-SCI-hub 下載
-縮小檔案size pdf  https://www.ilovepdf.com/zh-tw
-英譯中 https://www.deepl.com/translator (免費有檔案大小限制)
-Pdf 簡轉繁 https://www.onlinedoctranslator.com/zh-cn/()_zh-tw_zh
-上面不給轉可換 google 翻譯 https://translate.google.com.tw/?hl=zh-TW&sl=auto&tl=zh-TW&op=docs
-PDF ocr https://lightpdf.com/tw/ocr
+-------------------------------------------------------------------------------------------------------------------------------
 
 
