@@ -19,8 +19,8 @@ https://arxiv.org/pdf/2105.06413.pdf
 =================================================openfl  Director-Base 執行流程============================================
 建立OpenFL_DirectorBased 資料夾，後續操作建立資料均於此資料夾下
 anaconda 建立環境 FL_director ，python 版本選3.7
-anaconda ui => python 換3.8版， tensorflow 2.9版
-安裝openfl : pip install openfl
+anaconda ui => python 換3.8版， tensorflow 2.9版 
+安裝openfl : pip install openfl==1.5.0
 active FL_director env 開console X 5個, 分別用於director、envoy1、envoy2、envoy3、workspace 分別描述如下
 (1)director console:
    cd OpenFL_DirectorBased/Tensorflow_MNIST/director
@@ -30,10 +30,10 @@ active FL_director env 開console X 5個, 分別用於director、envoy1、envoy2
    fx envoy start -n "envoy_one" --disable-tls --envoy-config-path "envoy_config_one.yaml" -dh localhost -dp 50051
 (3)envoy2 console:
    cd OpenFL_DirectorBased/Tensorflow_MNIST/envoy
-   ffx envoy start -n "envoy_two" --disable-tls --envoy-config-path "envoy_config_two.yaml" -dh localhost -dp 50051
+   fx envoy start -n "envoy_two" --disable-tls --envoy-config-path "envoy_config_two.yaml" -dh localhost -dp 50051
 (4)envoy3 console:(yaml 要再建立)
    cd OpenFL_DirectorBased/Tensorflow_MNIST/envoy
-   ffx envoy start -n "envoy_three" --disable-tls --envoy-config-path "envoy_config_three.yaml" -dh localhost -dp 50051
+   fx envoy start -n "envoy_three" --disable-tls --envoy-config-path "envoy_config_three.yaml" -dh localhost -dp 50051
 (5)workspace:
    cd OpenFL_DirectorBased/Tensorflow_MNIST/workspace
    選項1 jupter (要安裝)，jupyter lab Tensorflow_MNIST.ipynb
