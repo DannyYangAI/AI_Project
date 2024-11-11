@@ -2,5 +2,8 @@
 
 電腦 DELL 戴爾 W3-2425 RTX4090 六核商用電腦(5860/W3-2425/256G/8TB HDD+8TB SSD/RTX4090-24G/W11P)
 
-Pytorch 版本
+Pytorch 支援cude 版本
 https://pytorch.org/
+
+cuda 歷史版本下載
+https://developer.nvidia.com/cuda-toolkit-archive
