@@ -2,8 +2,23 @@
 
 電腦 DELL 戴爾 W3-2425 RTX4090 六核商用電腦(5860/W3-2425/256G/8TB HDD+8TB SSD/RTX4090-24G/W11P)
 
-Pytorch 支援cude 版本
-https://pytorch.org/
+安裝步驟：
+1、nvida 顯示驅動內建，省略安裝
 
-cuda 歷史版本下載
-https://developer.nvidia.com/cuda-toolkit-archive
+2、安裝cuda 
+(1)檢查 Pytorch 支援cuda 版本 : https://pytorch.org/  (202411.12 支援最新的版本為 CUDA 12.4)
+(2)cuda 歷史版本下載：https://developer.nvidia.com/cuda-toolkit-archive
+(3)cuda 安裝驗證：使用WIN+R進入命令模式，輸入nvcc -V確認安裝版本是否已經成功
+
+3、安裝anaconda 最新版，關閉anaconda後再安裝visual studio code 最新版
+
+4、並測試AI程式能否使用gpu
+開啟anaconda並建一個測試虛擬環境，再從anaconda介面開啟visual studio code
+Pytorch 官網 https://pytorch.org/ ，取得安裝pytoch for GPU的 指令 : (點選橘色區塊)
+conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+或到 https://pytorch.org/get-started/previous-versions/ 取得各歷史版本的指令
+
+透過 Pytorch 測試是否可以使用 GPU 和 CUDA
+以下為程式碼：
+import torch
+torch.cuda.is_available()
