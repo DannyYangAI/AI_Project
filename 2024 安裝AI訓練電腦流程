@@ -5,7 +5,7 @@
 安裝步驟：
 1、nvida 顯示驅動內建，省略安裝
 
-2、安裝cuda 
+2、安裝cuda =>CUDA 12.4
 (1)檢查 Pytorch 支援cuda 版本 : https://pytorch.org/  (202411.12 支援最新的版本為 CUDA 12.4)
 (2)cuda 歷史版本下載：https://developer.nvidia.com/cuda-toolkit-archive
 (3)cuda 安裝驗證：使用WIN+R進入命令模式，輸入nvcc -V確認安裝版本是否已經成功
