@@ -1,0 +1,33 @@
+https://www.youtube.com/watch?v=q-f2IAr9vA0
+https://github.com/adap/flower
+https://flower.ai/
+https://flower.ai/docs/framework/index.html
+https://flower.ai/docs/framework/how-to-configure-clients.html
+https://flower.ai/docs/framework/docker/tutorial-deploy-on-multiple-machines.html
+https://github.com/FedML-AI/FedML
+https://www.tensorflow.org/federated?hl=zh-tw
+https://github.com/OpenMined/PySyft?tab=readme-ov-file
+https://medium.com/mess-up/%E7%B0%A1%E6%98%93%E6%95%99%E5%AD%B8-pysyft%E5%85%A5%E9%96%80-1-ae25af834346
+
+以下列出五個熱門且非中國企業開發的聯邦學習框架：
+
+TensorFlow Federated (TFF)
+由 Google 開發，專注於隱私保護的分布式機器學習，適用於研究與生產環境，支持開源使用。
+
+OpenFL (Open Federated Learning)
+由 Intel 開發，提供高度靈活的聯邦學習基礎架構，適用於多種應用場景，強調異構環境下的協作。
+
+PySyft
+OpenMined 開發的工具集，支持隱私保護和聯邦學習，與 PyTorch 集成良好，適合初學者和研究者。
+
+Flower
+提供簡單且靈活的聯邦學習框架，支持多種深度學習庫（如 PyTorch 和 TensorFlow），適用於分布式環境。
+
+FederatedScope
+雖然起源於國際合作，但主要被學術機構採用，適合以研究為導向的應用，支持靈活配置。
+
+從上述資料中，Flower 是一個最簡易上手使用的聯邦學習框架。它提供高度定制化和簡潔的橫向聯邦學習實現方案，對於初學者而言非常友好，並且擁有良好的文檔與快速入門指南 [2]。
+
+其他框架如 FederatedScope 也有詳細教程和運行腳本，但其功能偏向研究用途，對初學者可能稍微複雜 [3]。
+
+因此，推薦使用 Flower 作為入門選擇，適合快速學習與實現簡單的聯邦學習應用。
