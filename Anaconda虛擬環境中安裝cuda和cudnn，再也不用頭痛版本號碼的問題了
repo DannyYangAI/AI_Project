@@ -1,0 +1,33 @@
+1 nvida 顯示卡驅動安裝
+通常買新電腦時就會安裝，所以不說明安裝
+
+2cuda 安裝
+這邊不說明在作業系統上安裝cuda , 而是在每一個anaconda 虛擬環境下安裝cuda 的方法，裝錯重建新的虛擬機就行了
+(1)nvida-smi 指令，出現的表格，右上方的cuda版本，並非是已安裝版本，而是可安裝的最新版本
+(2)nvcc -V 指令就可以知道有沒安裝cuda 
+(3)到anaconda 網站取得下載conda 指令
+   https://anaconda.org/nvidia/cuda-toolkit
+   EX: 自動安裝可用最新版
+       conda install nvidia::cuda-toolkit
+
+4cudnn 安裝
+(1)檢查cuda 版本對應的 cudnn版本
+   conda search cudnn --info
+
+   顯示：cudnn 9.1.1.17 cuda12_1
+   -----------------------
+   file name   : cudnn-9.1.1.17-cuda12_1.conda
+
+(2)安裝 對應版本：
+   conda install cudnn = 9.1.1
+
+4 Pytorch 安裝
+到https://pytorch.org/ 網頁下方的表格選對應版本，得到安裝指令
+EX: pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+5最後檢查是否已成功安裝cuda、cudnn 
+anaconda 環境-> Open Terminal
+依序輸入下面三行指令:
+python
+import torch
+print('CUDA版本:'+ str(torch.version.cuda) + ' \ncudnn版本:' + str(torch.backends.cudnn.version()))
